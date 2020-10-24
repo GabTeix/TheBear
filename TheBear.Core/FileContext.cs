@@ -67,7 +67,8 @@ namespace TheBear.Core
 
             string output = Path.Replace(".exe", ".thebear.exe");
             Module.Write(output, options);
-            Console.WriteLine();
+
+            Logger.Blank();
             Logger.PrintSuccess(output);
             Logger.ReadLine();
         }

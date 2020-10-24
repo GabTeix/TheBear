@@ -37,6 +37,7 @@ namespace TheBear.Core
         public static void PrintError(string text) => Print(text, "x", ConsoleColor.Red);
         public static void PrintSuccess(string text) => Print(text, "+", ConsoleColor.Green);
 
+        public static void Blank() => Console.WriteLine();
         public static void ReadLine() => Console.ReadLine();
 
     }

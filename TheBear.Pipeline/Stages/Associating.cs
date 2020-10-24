@@ -21,14 +21,11 @@ namespace TheBear.Pipeline.Stages
             reader.ReadInt32();
             reader.ReadInt32();
 
-            for (int i = 0; i < handlers.Count; i++)
+            for (int i = 0; i < handlers.Count - 1; i++)
             {
                 reader.ReadInt32();
-                var ID = reader.ReadInt32();
-                if (ID == 777)
-                    break;
 
-                var handler = handlers[ID];
+                var handler = handlers[reader.ReadInt32()];
 
                 reader.ReadInt32();
 

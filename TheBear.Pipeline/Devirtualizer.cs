@@ -29,6 +29,7 @@ namespace TheBear.Pipeline
         };
         public void Execute()
         {
+            Logger.Blank();
             foreach (var stage in Stages)
             {
                 Logger.PrintInfo($"Executing {stage.Name} stage...");
