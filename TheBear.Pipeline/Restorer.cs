@@ -1,7 +1,7 @@
 ﻿
 using dnlib.DotNet;
 using dnlib.DotNet.Emit;
-
+using System;
 using System.Collections.Generic;
 using System.IO;
 
@@ -34,6 +34,11 @@ namespace TheBear.Pipeline
             for (int i =0; i < count; i++)
             {
                 var handlerID = Reader.ReadByte();
+                if (!Handlers.ContainsKey(handlerID))
+                {
+                    CurrentMethod.Instructions.Add(OpCodes.Nop.ToInstruction());
+                    continue;
+                }
                 var handler = Handlers[handlerID];
                 var instruction = new Instruction()
                 {
@@ -50,5 +55,6 @@ namespace TheBear.Pipeline
         public void AddTarget(int target) => CurrentMethod.Targets.Add(CurrentMethod.Instructions.Count, target);
         public IField ResolveField(int token) => Module.ResolveToken(token) as IField;
         public IMethod ResolveMethod(int token) => Module.ResolveToken(token) as IMethod;
+        public ITypeDefOrRef ResolveType(int token) => Module.ResolveToken(token) as ITypeDefOrRef;
     }
 }

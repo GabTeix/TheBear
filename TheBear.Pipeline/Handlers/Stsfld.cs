@@ -9,6 +9,7 @@ namespace TheBear.Pipeline.Handlers
         public Code ILCode => Code.Stsfld;
         public object ResolveOperand(Restorer restorer)
         {
+            restorer.Reader.ReadBoolean();
             restorer.Reader.ReadInt16();
             return restorer.ResolveField(restorer.Reader.ReadInt32());
         }

@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+using TheBear.Core;
 
 namespace TheBear.Pipeline.Stages
 {
@@ -13,6 +10,8 @@ namespace TheBear.Pipeline.Stages
         public override void Execute(Devirtualizer devirtualizer)
         {
             var restorer = new Restorer(devirtualizer);
+
+            Logger.Blank();
 
             foreach (var method in devirtualizer.Methods)
             {

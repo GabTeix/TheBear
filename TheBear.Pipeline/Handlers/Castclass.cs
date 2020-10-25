@@ -3,10 +3,10 @@ using dnlib.DotNet.Emit;
 
 namespace TheBear.Pipeline.Handlers
 {
-    public class Newarr : IHandler
+    public class Castclass : IHandler
     {
-        public int ID => 14;
-        public Code ILCode => Code.Newarr;
+        public int ID => 15;
+        public Code ILCode => Code.Castclass;
         public object ResolveOperand(Restorer restorer)
         {
             restorer.Reader.ReadInt16();
